@@ -20,6 +20,7 @@
 
 **Docker Stroage Types**
 Docker has three types of stroage. They are `Volume`, `Bind mount`, `tmpfs`. Volumes are completely managed by Docker. It is mostly used stroage type in Docker becouse of it's advantages.
+
 ![stroage-type](Images/types-of-mounts.png)
 ![type-volume](Images/types-of-mounts-volume.png)
 ![type-bind](Images/types-of-mounts-bind.png)
