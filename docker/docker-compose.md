@@ -79,3 +79,45 @@ services:
   db:
     image: postgres
 ```
+
+## ports
+```yml
+ports:
+  - "3000"
+  - "3000-3005"
+  - "8000:8000"
+  - "9090-9091:8080-8081"
+  - "49100:22"
+  - "127.0.0.1:8001:8001"
+  - "127.0.0.1:5000-5010:5000-5010"
+  - "127.0.0.1::5000"
+  - "6060:6060/udp"
+  - "12400-12500:1240"
+```
+
+## volumes [..]([volumes](https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes)
+```yml
+version: "3.9"
+services:
+  web:
+    image: nginx:alpine
+    volumes:
+      - type: volume
+        source: mydata
+        target: /data
+        volume:
+          nocopy: true
+      - type: bind
+        source: ./static
+        target: /opt/app/static
+
+  db:
+    image: postgres:latest
+    volumes:
+      - "/var/run/postgres/postgres.sock:/var/run/postgres/postgres.sock"
+      - "dbdata:/var/lib/postgresql/data"
+
+volumes:
+  mydata:
+  dbdata:
+```
